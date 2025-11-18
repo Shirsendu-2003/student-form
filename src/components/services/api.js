@@ -1,3 +1,4 @@
+// src/services/api.js
 import axios from "axios";
 
 const api = axios.create({
@@ -6,7 +7,7 @@ const api = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-// Auto attach token
+// Attach token automatically
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -16,7 +17,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Auto retry ONLY on CORS / Network errors
+// Retry ONCE for CORS / network failure
 api.interceptors.response.use(
   (res) => res,
   async (err) => {
