@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://studentforn-backend-1.onrender.com/api",
+  baseURL: "https://proactive-dedication-production-c4d4.up.railway.app/api",
   timeout: 15000,
   headers: { "Content-Type": "application/json" },
 });
